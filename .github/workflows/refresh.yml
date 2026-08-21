@@ -1,0 +1,68 @@
+name: 刷新品牌热度仪表盘
+
+on:
+  schedule:
+    # UTC 0:00 / 5:00 / 12:00 对应北京时间 8:00 / 13:00 / 20:00
+    - cron: '0 0,5,12 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: brand-dashboard-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装思源黑体（免商用 SIL OFL）
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+
+      - name: 安装 Python 依赖
+        run: pip install -q -r requirements.txt
+
+      - name: 采集品牌热度数据（Bing + Yahoo）
+        run: python fetch_brand_metrics.py
+
+      - name: 生成仪表盘 HTML + 封面图
+        run: |
+          OWNER="${GITHUB_REPOSITORY%/*}"
+          REPO="${GITHUB_REPOSITORY#*/}"
+          export DASHBOARD_BASE_URL="https://${OWNER}.github.io/${REPO}"
+          python generate_dashboard.py
+
+      - name: 回写数据到仓库（持久化 brand_metrics.json + daily）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add brand_metrics.json daily/
+          if git diff --cached --quiet; then
+            echo "无数据变更，跳过提交"
+          else
+            git commit -m "chore: 刷新品牌热度数据 $(date +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: 部署到 GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dashboard
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "deploy: 更新仪表盘 $(date +%Y-%m-%d %H:%M)"
