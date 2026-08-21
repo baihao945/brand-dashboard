@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# 生成的仪表盘（部署到 gh-pages 分支，不进主分支）
+dashboard/
+
+# 系统
+.DS_Store
