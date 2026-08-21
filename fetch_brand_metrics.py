@@ -102,7 +102,7 @@ session.headers.update({
 
 def fetch_bing_count(keyword, max_attempts=3):
     """从Bing获取搜索结果数量（仅从sb_count提取，多重试取最大值）"""
-    url = 'https://cn.bing.com/search'
+    url = 'https://www.bing.com/search'
     params = {'q': keyword, 'count': 10, 'setlang': 'zh-CN'}
     
     best_value = None
