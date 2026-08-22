@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>半导体芯片行业动态简报</title>
+
+<!-- 微信分享卡片 / Open Graph -->
+<meta property="og:title" content="半导体芯片行业动态简报">
+<meta property="og:description" content="国民技术品牌动态监控 · 44家竞品 · 6大板块 · 7大渠道 · 每日8/13/20点实时更新">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://baihao945.github.io/brand-dashboard/">
+<meta property="og:image" content="https://baihao945.github.io/brand-dashboard/cover.png">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:type" content="image/png">
+<meta name="description" content="国民技术品牌动态监控 · 44家竞品 · 6大板块 · 7大渠道 · 每日8/13/20点实时更新">
+<meta itemprop="name" content="半导体芯片行业动态简报">
+<meta itemprop="description" content="国民技术品牌动态监控 · 44家竞品 · 6大板块 · 7大渠道 · 每日8/13/20点实时更新">
+<meta itemprop="image" content="https://baihao945.github.io/brand-dashboard/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="半导体芯片行业动态简报">
+<meta name="twitter:description" content="国民技术品牌动态监控 · 44家竞品 · 6大板块 · 7大渠道">
+<meta name="twitter:image" content="https://baihao945.github.io/brand-dashboard/cover.png">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    font-family: -apple-system, "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 40px;
+}
+.container { width: 100%; max-width: 600px; margin: 0 auto; padding: 0 12px; }
+
+/* ===== 顶部头部 ===== */
+.header {
+    background: linear-gradient(135deg, #1a2a3a 0%, #2d4a6b 100%);
+    color: #fff;
+    padding: 20px 20px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12, #3498db, #2ecc71);
+}
+.header h1 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.header .subtitle { font-size: 12px; opacity: 0.75; }
+.update-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+/* ===== 统计卡片 ===== */
+.stats-row { display: flex; gap: 8px; padding-top: 10px; }
+.stat-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 6px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.stat-card .num { font-size: 18px; font-weight: 700; color: #1a56c4; line-height: 1.2; }
+.stat-card .label { font-size: 10px; color: #999; margin-top: 2px; }
+
+/* ===== 图表区域 ===== */
+.charts-toggle { padding-top: 8px; text-align: center; }
+.charts-toggle-btn {
+    display: inline-block;
+    background: #fff;
+    color: #1a56c4;
+    border: 1px solid #d0d8e8;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.charts-toggle-btn:hover { background: #f0f4f8; }
+.charts-wrap { padding-top: 8px; display: none; }
+.charts-wrap.show { display: block; }
+.chart-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.chart-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a2a3a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.chart-section-title .dot {
+    width: 3px;
+    height: 12px;
+    border-radius: 1px;
+    background: #1a56c4;
+}
+.chart-container { position: relative; width: 100%; }
+.chart-container.bar { height: 240px; }
+.chart-container.donut { height: 160px; }
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    justify-content: center;
+    margin-top: 4px;
+}
+.legend-item { display: flex; align-items: center; gap: 3px; font-size: 10px; color: #888; }
+.legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+/* ===== 股票表格 ===== */
+.stock-table-wrap { overflow-x: auto; }
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+.stock-table th {
+    text-align: left;
+    padding: 6px 8px;
+    color: #999;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+.stock-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #f5f5f5;
+    white-space: nowrap;
+}
+.stock-table .stock-name { font-weight: 600; color: #333; }
+.stock-table .up { color: #e74c3c; font-weight: 600; }
+.stock-table .down { color: #2ecc71; font-weight: 600; }
+.stock-table .flat { color: #999; }
+.stock-table .self-row {
+    background: #f0f4ff;
+}
+.stock-table .self-row .stock-name { color: #1a56c4; }
+
+/* ===== 日报正文 ===== */
+.report-wrap { padding-top: 8px; }
+.report-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+.report-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a2a3a;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a2a3a;
+    margin-bottom: 12px;
+}
+.report-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a2a3a;
+    background: #f0f4f8;
+    border-left: 3px solid #1a56c4;
+    padding: 6px 10px;
+    margin: 12px 0 6px 0;
+    border-radius: 0 4px 4px 0;
+}
+.report-ol { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.75; color: #444; }
+.report-ul { margin: 0; padding-left: 16px; font-size: 12.5px; line-height: 1.75; color: #444; list-style: none; }
+.report-ul li { position: relative; padding-left: 10px; margin-bottom: 3px; }
+.report-ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #c0c8d8;
+}
+.report-ol li { margin-bottom: 3px; }
+.report-ul li .brand, .report-ol li .brand { font-weight: 700; color: #1a56c4; }
+.report-source {
+    font-size: 10px;
+    color: #999;
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    line-height: 1.5;
+}
+.report-p { font-size: 12.5px; line-height: 1.75; color: #444; margin: 4px 0; }
+
+/* ===== 底部 ===== */
+.footer {
+    text-align: center;
+    padding: 16px 12px;
+    font-size: 10px;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* ===== 小屏手机 ===== */
+@media (max-width: 380px) {
+    .stat-card .num { font-size: 16px; }
+    .header h1 { font-size: 16px; }
+    .report-section-title { font-size: 12px; }
+    .report-ol, .report-ul { font-size: 12px; }
+    .stock-table { font-size: 10px; }
+    .stock-table th, .stock-table td { padding: 4px 6px; }
+}
+
+/* ===== 平板竖屏 / 小笔记本 (768px+) ===== */
+@media (min-width: 768px) {
+    .container { max-width: 740px; padding: 0 16px; }
+    .header { padding: 28px 20px 20px; }
+    .header h1 { font-size: 22px; }
+    .header .subtitle { font-size: 13px; }
+    .stat-card .num { font-size: 22px; }
+    .stat-card .label { font-size: 11px; }
+    .stat-card { padding: 12px 8px; }
+    .charts-toggle-btn { font-size: 13px; padding: 6px 18px; }
+    .chart-section { padding: 14px 16px; }
+    .chart-section-title { font-size: 14px; }
+    .chart-container.bar { height: 280px; }
+    .chart-container.donut { height: 200px; }
+    .legend-item { font-size: 12px; }
+    .stock-table { font-size: 13px; }
+    .stock-table th, .stock-table td { padding: 8px 12px; }
+    .report-card { padding: 24px 28px; }
+    .report-title { font-size: 20px; padding-bottom: 14px; margin-bottom: 16px; }
+    .report-section-title { font-size: 15px; padding: 8px 12px; margin: 16px 0 8px 0; }
+    .report-ol, .report-ul { font-size: 14px; line-height: 1.85; }
+    .report-p { font-size: 14px; line-height: 1.85; }
+    .report-source { font-size: 12px; }
+    .footer { font-size: 11px; }
+    .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .charts-grid .chart-section { margin-bottom: 0; }
+}
+
+/* ===== PC桌面 (1024px+) ===== */
+@media (min-width: 1024px) {
+    .container { max-width: 960px; padding: 0 20px; }
+    .header { padding: 32px 20px 24px; }
+    .header h1 { font-size: 26px; }
+    .header .subtitle { font-size: 14px; }
+    .update-badge { font-size: 11px; padding: 3px 10px; }
+    .stat-card .num { font-size: 26px; }
+    .stat-card .label { font-size: 12px; }
+    .stat-card { padding: 14px 10px; }
+    .stats-row { gap: 12px; }
+    .chart-section { padding: 16px 20px; }
+    .chart-section-title { font-size: 15px; }
+    .chart-container.bar { height: 320px; }
+    .chart-container.donut { height: 220px; }
+    .report-card { padding: 28px 36px; }
+    .report-title { font-size: 22px; }
+    .report-section-title { font-size: 16px; }
+    .report-ol, .report-ul { font-size: 15px; line-height: 1.9; }
+    .report-p { font-size: 15px; line-height: 1.9; }
+    .footer { font-size: 12px; padding: 20px 12px; }
+    .charts-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 12px; }
+    .charts-grid-full { grid-column: 1 / -1; }
+}
+
+/* ===== 大屏桌面 (1440px+) ===== */
+@media (min-width: 1440px) {
+    .container { max-width: 1100px; }
+    .header h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>半导体芯片行业动态简报</h1>
+    <div class="subtitle">44家竞品品牌 · 4大产品板块 + 机器人/AI主题 · 7大渠道全网监测</div>
+    <div class="update-badge">数据更新于 2026-08-22 12:41 · 日报 2026-08-19</div>
+</div>
+
+<div class="container">
+<div class="stats-row">
+    <div class="stat-card">
+        <div class="num">44</div>
+        <div class="label">监控品牌</div>
+    </div>
+    <div class="stat-card">
+        <div class="num">18</div>
+        <div class="label">有动态品牌</div>
+    </div>
+    <div class="stat-card">
+        <div class="num">17</div>
+        <div class="label">上市追踪</div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+<div class="charts-toggle">
+    <div class="charts-toggle-btn" id="chartsToggle" onclick="toggleCharts()">
+        📊 品牌热度数据 ▸
+    </div>
+    <div style="font-size:10px;color:#aaa;margin-top:4px;">
+        数据来源：Bing搜索结果数 + Yahoo Finance股价
+    </div>
+</div>
+
+<div class="charts-wrap" id="chartsWrap">
+    <div class="charts-grid">
+    <div class="chart-section">
+        <div class="chart-section-title"><span class="dot" style="background:#1a56c4;"></span>品牌搜索热度 TOP7</div>
+        <div class="chart-container bar">
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+    <div class="chart-section">
+        <div class="chart-section-title"><span class="dot"></span>六大板块搜索热度占比</div>
+        <div class="chart-container donut">
+            <canvas id="donutChart"></canvas>
+        </div>
+        <div class="legend" id="donutLegend"></div>
+    </div>
+    </div>
+    <div class="chart-section">
+        <div class="chart-section-title"><span class="dot" style="background:#f39c12;"></span>上市公司行情（17家 · 5日涨跌）</div>
+        <div class="stock-table-wrap">
+        <table class="stock-table">
+            <thead><tr><th>品牌</th><th>股价</th><th>成交量</th><th>5日涨跌</th></tr></thead>
+            <tbody><tr class="self-row">
+            <td class="stock-name">★ 国民技术</td>
+            <td>¥19.41</td>
+            <td>2309.5万</td>
+            <td class="down">-5.59%</td>
+        </tr><tr>
+            <td class="stock-name">ADI</td>
+            <td>$373.09</td>
+            <td>545.7万</td>
+            <td class="down">-4.40%</td>
+        </tr><tr>
+            <td class="stock-name">Microchip</td>
+            <td>$76.08</td>
+            <td>462.9万</td>
+            <td class="down">-5.21%</td>
+        </tr><tr>
+            <td class="stock-name">NORDIC</td>
+            <td>kr 162.90</td>
+            <td>74.4万</td>
+            <td class="down">-4.12%</td>
+        </tr><tr>
+            <td class="stock-name">NXP</td>
+            <td>$225.56</td>
+            <td>217.2万</td>
+            <td class="down">-3.08%</td>
+        </tr><tr>
+            <td class="stock-name">ST</td>
+            <td>$50.56</td>
+            <td>477.4万</td>
+            <td class="down">-9.37%</td>
+        </tr><tr>
+            <td class="stock-name">TI</td>
+            <td>$264.36</td>
+            <td>546.0万</td>
+            <td class="down">-6.56%</td>
+        </tr><tr>
+            <td class="stock-name">中颖</td>
+            <td>¥22.74</td>
+            <td>516.3万</td>
+            <td class="down">-4.49%</td>
+        </tr><tr>
+            <td class="stock-name">兆易创新</td>
+            <td>¥409.06</td>
+            <td>3407.7万</td>
+            <td class="down">-7.87%</td>
+        </tr><tr>
+            <td class="stock-name">卓胜微</td>
+            <td>¥77.14</td>
+            <td>736.6万</td>
+            <td class="down">-6.49%</td>
+        </tr><tr>
+            <td class="stock-name">复旦微</td>
+            <td>¥53.60</td>
+            <td>1122.7万</td>
+            <td class="down">-5.63%</td>
+        </tr><tr>
+            <td class="stock-name">新唐</td>
+            <td>NT$114.00</td>
+            <td>266.4万</td>
+            <td class="down">-9.16%</td>
+        </tr><tr>
+            <td class="stock-name">汇顶科技</td>
+            <td>¥48.87</td>
+            <td>564.6万</td>
+            <td class="down">-6.02%</td>
+        </tr><tr>
+            <td class="stock-name">泰凌微</td>
+            <td>¥26.94</td>
+            <td>273.2万</td>
+            <td class="down">-5.71%</td>
+        </tr><tr>
+            <td class="stock-name">瑞萨</td>
+            <td>¥3433.00</td>
+            <td>768.7万</td>
+            <td class="down">-11.36%</td>
+        </tr><tr>
+            <td class="stock-name">芯海</td>
+            <td>¥28.01</td>
+            <td>198.6万</td>
+            <td class="down">-4.86%</td>
+        </tr><tr>
+            <td class="stock-name">英飞凌</td>
+            <td>€55.41</td>
+            <td>297.2万</td>
+            <td class="down">-10.59%</td>
+        </tr></tbody>
+        </table>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+<div class="report-wrap">
+    <div class="report-card" id="reportContent"></div>
+</div>
+</div>
+
+<div class="footer">
+    搜索热度数据：Bing搜索结果数量（2026-08-22采集，4个产品板块按品牌汇总 + 机器人/AI主题按关键词）<br>
+    股价数据：Yahoo Finance API（5日区间）<br>
+    日报内容：WebSearch + 微信公众号 + 财经平台 + 半导体媒体 + 社交媒体 + 供应链 + 专利数据库<br>
+    监控范围：安全芯片9家 · MCU 26家 · 蓝牙6家 · BMS 3家
+</div>
+
+<script>
+const D = {"date": "2026-08-19", "active_count": 18, "stock_count": 17, "self_brand": "国民技术", "self_color": "#1a56c4", "top5_labels": ["国民技术 · MCU", "兆易创新 · MCU", "芯海 · BMS", "中颖 · MCU", "新唐 · MCU", "赛元 · MCU", "复旦微 · 安全芯片"], "top5_values": [9980, 30300, 861000, 583000, 372000, 318000, 226000], "top5_colors": ["#1a56c4", "#9b59b6", "#f39c12", "#3498db", "#3498db", "#3498db", "#e74c3c"], "top5_formatted": ["9,980", "3.0万", "86.1万", "58.3万", "37.2万", "31.8万", "22.6万"], "top5_sectors": ["MCU", "MCU", "BMS", "MCU", "MCU", "MCU", "安全芯片"], "top5_names": ["国民技术", "兆易创新", "芯海", "中颖", "新唐", "赛元", "复旦微"], "top5_areas_detail": [{"机器人": 5650, "AI": 63000, "汽车电子": 227000, "工业控制": 21100, "消费电子": 225000}, {"机器人": 19600, "AI": 27600, "汽车电子": 6570, "工业控制": 44500, "消费电子": 2020}, {}, {"机器人": 583000, "AI": 583000, "汽车电子": 583000, "工业控制": 583000, "消费电子": 583000}, {"机器人": 372000, "AI": 372000, "汽车电子": 372000, "工业控制": 372000, "消费电子": 372000}, {"机器人": 46400, "AI": 765, "汽车电子": 12000, "工业控制": 31200, "消费电子": 225000}, {}], "sector_labels": ["安全芯片", "MCU", "蓝牙", "BMS", "机器人芯片", "AI芯片"], "sector_values": [922400, 2187398, 408645, 861000, 26900, 643000], "sector_colors": ["#e74c3c", "#3498db", "#2ecc71", "#f39c12", "#9b59b6", "#1abc9c"], "sector_formatted": ["92.2万", "218.7万", "40.9万", "86.1万", "2.7万", "64.3万"], "report_html": "<div class=\"report-title\">竞品动态日报 | 2026-08-19（周三）| 监控44家 | 有动态18家</div>\n<p class=\"report-p\">> <span class=\"brand\">统计窗口</span>：2026-08-18 08:00 ~ 2026-08-19 08:00（24小时，8:00轮）</p>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">一、核心发现（TOP 5）</div>\n<ol class=\"report-ol\">\n<li><span class=\"brand\">宇树科技今日科创板上市</span>，股票代码688836，发行价150.80元/股，上市市值约610亿元——A股人形机器人第一股正式诞生，树立具身智能产业估值锚。</li>\n<li><span class=\"brand\">兆易创新半年报正式披露</span>：营收115.66亿元（+178.67%），归母净利润68.57亿元（+1091.5%）；第四大股东葛卫东二季度增仓18.51万股——业绩与信心双重验证。</li>\n<li><span class=\"brand\">ST意法半导体年内第三次涨价</span>，8月23日起多条产品线上调价格——国际MCU大厂成本压力持续加剧，涨价已成行业常态。</li>\n<li><span class=\"brand\">2026世界机器人大会进入第二天</span>（8月19日），300+企业参展，150+新品首发；宇树\"超人\"机器人原地跳高2米突破人类纪录——人形机器人从技术验证进入\"型号大爆炸\"阶段。</li>\n<li><span class=\"brand\">芯片涨价潮全面蔓延</span>：ADI（9月13日起，军用级最高+30%，年内第二次）、卓胜微（9月1日起全系列RF）、国民技术（10月1日起+10%~20%，年内第二次）、ST（8月23日起，年内第三次）——涨价已从成本驱动转向供需紧张驱动。</li>\n</ol>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">二、🤖 机器人赛道（领导重点关注）</div>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【宇树科技｜今日上市】</span> 8月19日正式登陆上交所科创板，股票代码688836，发行价150.80元/股，发行市盈率219倍，上市市值约609.93亿元；网上投资者放弃认购8734股。作为A股人形机器人第一股，为智元、乐聚等后续排队企业提供估值锚定。（来源：经济观察报/证券时报）</li>\n<li><span class=\"brand\">【宇树科技｜新品发布】</span> 发布新品人形机器人\"超人\"，腿长0.85米，原地跳高2米，极限速度12.66m/s，突破人类原地跳高和奔跑速度双重纪录；公司表示整机仅用3个多月研发完成。（来源：央视财经/每日经济新闻）</li>\n<li><span class=\"brand\">【宇树科技｜展会预告】</span> CEO王兴兴明日（8月20日）将亮相2026世界机器人大会主论坛，展望人形机器人产业下一个十年——这将是宇树登陆科创板后王兴兴首次在行业大会发声。（来源：央视财经）</li>\n<li><span class=\"brand\">【兆易创新｜已发布方案】</span> 正式发布GD32H77R高性能MCU，与GD32F50MxxG形成\"双芯\"机器人电控底座方案；高级副总裁李宝魁透露单台人形机器人MCU搭载需求量约60颗，2026年全球该领域MCU潜在市场规模将突破千万颗。（来源：电子发烧友/新浪网）</li>\n<li><span class=\"brand\">【兆易创新｜持续】</span> GD32F50MxxG机器人关节专用MCU（合封自研驱动+运放，252MHz）已正式发布，单芯片解决关节多芯片分立/体积受限/EMI干扰等痛点。（来源：半导体器件应用网）</li>\n<li><span class=\"brand\">【小米｜展会预告】</span> 小米机器人将在2026世界机器人大会上首次面向公众亮相；小米玄戒芯片即将发布。（来源：华尔街见闻/小米财报电话会）</li>\n<li><span class=\"brand\">【摩根士丹利｜行业报告】</span> 发布人形机器人Top 25公司名单，预测市场2050年将超5万亿美元；英飞凌、瑞萨、NXP、ST、TI、Microchip、Ambarella等芯片厂入围\"大脑/眼睛/肌肉\"供应链层。（来源：Morgan Stanley）</li>\n<li><span class=\"brand\">【行业数据】</span> 2026上半年全球人形机器人出货量达1.91万台（+272%），中国制造商占全球97%，智元机器人与宇树科技合计占据75%份额——中国已占据人形机器人产业化绝对主导地位。（来源：Smart Analytics Global/每日经济新闻）</li>\n<li><span class=\"brand\">【行业事件】</span> 2026世界机器人大会8月19-23日北京亦庄举行，主题\"人机共生，产需共融\"，参展企业300余家（+36%），展品超2000件，首发新品超150件；首次设央企专区，49家央企携12类应用场景展出。（来源：同花顺/新浪财经）</li>\n</ul>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">三、🧠 AI 芯片（领导重点关注）</div>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【NXP｜并购谈判中（持续）】</span> 拟以约30亿美元收购Ambarella的谈判仍在进行中，尚未最终达成；Ambarella 8月18日收盘价75.61美元（-3.68%），市值约25.4亿英镑。若交易达成，将大幅增强NXP在SDV、雷达、电气化及边缘AI视觉方面的能力。（来源：Financial Times/StockAnalysis）</li>\n<li><span class=\"brand\">【行业趋势】</span> 2026年边缘AI芯片整合浪潮持续：onsemi/Synaptics（~70亿美元）、Microchip/Hailo、NXP/Ambarella（~30亿美元）、TI/Silicon Labs（75亿美元）——传统MCU/模拟大厂纷纷通过并购补齐AI推理能力。（来源：AI2.work）</li>\n<li><span class=\"brand\">【诚恒微｜已发布方案（持续）】</span> CH37系列边端侧AI SoC（异构计算，16路1080P并发），目标具身智能/智能巡检等场景。（来源：新浪财经）</li>\n<li><span class=\"brand\">【芯擎科技｜已量产（持续）】</span> 车规级7nm AI加速芯片\"天工100\"全面量产交付，96 TOPS算力，PCIe插卡式独立外挂方案，成本控制在千元级别。（来源：快科技）</li>\n<li><span class=\"brand\">【TI｜已发布方案（持续）】</span> 集成TinyEngine NPU的边缘AI MCU，推理能耗降至纯软件方案1/120，超低功耗下提供2.56 GOPS。（来源：快科技）</li>\n<li><span class=\"brand\">【复旦微电｜已发布方案（持续）】</span> 推出Fathom L4 Agent智能FPGA开发平台，实现FPGA开发全流程Agent化；FPAI子系列新品拓展顺利，销售额迅速增长。（来源：证券时报）</li>\n</ul>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">四、安全芯片（9家）</div>\n<p class=\"report-p\"><span class=\"brand\">重点关注：</span></p>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【复旦微电｜业绩发布（持续）】</span> 2026上半年营收22.25亿元（+21%），归母净利润8.49亿元（+339%）；拟出资不超3亿元参与设立融盛产业基金，聚焦集成电路与航空航天领域。安全与识别产品线收入约4.72亿元，NFC读写器车规领域持续领跑。（来源：科创板日报/证券时报）</li>\n<li><span class=\"brand\">【同芯微/紫光同芯｜产品发布（持续）】</span> 推出新一代星地融合AI eSIM产品，拓展eSIM从通信连接到AI服务的新价值；车规级eSIM产品实现量产；汽车安全芯片T9系列蝉联知鼎奖。（来源：紫光国微公告）</li>\n</ul>\n<p class=\"report-p\"><span class=\"brand\">一般关注：</span></p>\n<ul class=\"report-ul\">\n<li>华大电子、晟元、大唐微、天津国芯、宏思、航芯、方正微：本统计窗口内暂无公开重大动态。</li>\n</ul>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">五、MCU（26家）</div>\n<p class=\"report-p\"><span class=\"brand\">重点关注：</span></p>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【兆易创新｜业绩发布/产品发布】</span> ①上半年营收115.66亿元（+178.67%），归母净利润68.57亿元（+1091.50%），扣非净利润48.83亿元（+796.90%），经营现金流大增531%至60.48亿元；②第四大股东葛卫东二季度增仓18.51万股；③正式发布GD32H77R机器人MCU（详见机器人赛道）。（来源：雪球/网易财经）</li>\n<li><span class=\"brand\">【ST｜涨价】</span> 年内第三次涨价：8月23日起多条产品线价格上调，理由为半导体需求急剧攀升、全球供应链持续承压；此前已于4月26日、6月28日完成两轮调价。FY26Q2营收34.9亿美元（+26%），已扭亏为盈；预计Q4营收突破40亿美元。（来源：腾讯新闻/网易号）</li>\n<li><span class=\"brand\">【英飞凌｜业绩发布（持续）】</span> FY26Q3营收41.72亿欧元创历史新高，利润7.97亿欧元，利润率19.1%；自由现金流5.99亿欧元，同比大增2223%；上调全年营收目标至约163亿欧元。AI电源业务营收目标上调至16亿欧元以上。（来源：QQ财经/腾讯新闻）</li>\n<li><span class=\"brand\">【中微半导｜业绩发布（持续）】</span> 上半年营收7.26亿元（+44%），归母净利润1.72亿元（+98%）；汽车电子进入一汽红旗/长安/赛力斯/吉利供应链，机器人客户含石头科技/大疆。（来源：证券时报/新浪财经）</li>\n<li><span class=\"brand\">【国民技术｜涨价（持续）】</span> 年内第二次涨价：10月1日起部分产品价格上调10%-20%，理由为市场缺货、国产替代需求增加、AI需求挤占产能；4月已进行15%-20%调价。公司在互动平台表示：当前并非全行业整体性紧缺，而是AI需求拉动下成熟制程产能分配带来的供需矛盾。（来源：满天芯/金融界）</li>\n<li><span class=\"brand\">【ADI｜涨价（持续）】</span> 9月13日起全产品线涨价，部分军用级\"/883\"器件涨幅最高约30%，为年内第二次涨价；7月曾预警部分产品交期最长达六个月。（来源：满天芯/猎芯头条）</li>\n<li><span class=\"brand\">【普冉股份｜业绩发布】</span> 上半年营收39.59亿元（+336.67%），归母净利润8.27亿元（+1929.65%）；存储芯片产品量价齐升，SHM（Skyhigh Memory）纳入合并报表贡献营收约23.46亿元。（来源：网易财经）</li>\n</ul>\n<p class=\"report-p\"><span class=\"brand\">一般关注：</span></p>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【中颖电子｜定增募资】</span> 发布向特定对象发行股票可行性分析报告（修订稿），拟募资发展车规/储能BMIC，把握国产替代机遇；全球BMIC市场2026年预计达65.2亿美元。（来源：新浪财经）</li>\n<li><span class=\"brand\">【卓胜微｜涨价（持续）】</span> 9月1日起全系列RF产品涨价，理由为上游原材料成本全面抬升。（来源：与非网）</li>\n<li>TI、CYPRESS、NXP（Ambarella并购持续中）、瑞萨（21日南京论坛预告）、新唐、汇顶科技、航顺、灵动、芯旺、MEGAWIN、NAVOTA、芯圣、赛元、苏州国芯、华芯微特、小华半导体、先楫半导体（HPM53M1已发布）、雅特力、极海：本统计窗口内暂无其他公开重大动态。</li>\n</ul>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">六、蓝牙（6家）</div>\n<p class=\"report-p\"><span class=\"brand\">重点关注：</span></p>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【NORDIC｜产品发布/展会（持续）】</span> 亮相广州Matter Open Day及IOTE 2026深圳展，展示nRF54LM20旗舰SoC——品牌首款集成Axon神经网络处理器的芯片，实现Matter+边缘AI本地语音控制（全离线、电池供电）；同步展示Aliro智能门锁、蓝牙Channel Sounding高精度测距等方案。（来源：Nordic中文官网）</li>\n</ul>\n<p class=\"report-p\"><span class=\"brand\">一般关注：</span></p>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【杰理科技｜资质认证】</span> 取得Apple MFi资质（注册号405079），正式进入苹果智能配件生态，可为充电宝/防丢器等产品设计支持Apple Find My查找功能的方案；推出双平台防丢定位方案（Apple Find My + Google Find Hub）。（来源：东方财富股吧）</li>\n<li>Dialog、泰凌微、上海博通、卓胜微（见射频涨价）、易兆微：本统计窗口内暂无其他公开重大动态。</li>\n</ul>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">七、BMS（3家）</div>\n<p class=\"report-p\"><span class=\"brand\">重点关注：</span></p>\n<ul class=\"report-ul\">\n<li><span class=\"brand\">【中颖电子｜定增募资】</span> 拟向特定对象发行股票募集资金，用于新能源汽车/工商业储能/家庭储能/轻型电动车BMIC开发；全球BMIC市场2026年预计65.2亿美元，2031年将增至113.4亿美元（CAGR 11.71%）；车规AFE芯片被称为\"模拟芯片的皇冠\"，国产替代空间巨大。（来源：新浪财经）</li>\n<li><span class=\"brand\">【芯海科技｜产品应用（持续）】</span> BMS芯片已出货手机应用；传感器产品切入人形机器人电子皮肤方向；车规级MCU已导入多家汽车客户并量产。8月18日融资余额2.41亿元，占流通市值5.72%，处于近一年80%分位以上。（来源：新浪财经/互动易）</li>\n<li><span class=\"brand\">【TI｜产品展示（持续）】</span> 展示800V DC供电架构，与英伟达合作开发数据中心供电技术。（来源：历史动态延续）</li>\n</ul>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<div class=\"report-section-title\">八、行业信号</div>\n<ol class=\"report-ol\">\n<li><span class=\"brand\">7月集成电路制造业增加值同比增109.3%</span>：国家统计局8月17日数据显示，规模以上高技术制造业增加值同比增长16.9%，其中集成电路制造行业增长109.3%，电子行业增速19.1%对规上工业增长贡献率超40%。（来源：北京日报/国家统计局）</li>\n<li><span class=\"brand\">财政部等四部门出台集成电路税收优惠</span>：8月15日四部门联合发文，对集成电路、工业母机企业非货币性资产交换给予企业所得税政策支持，直接为半导体、高端制造赛道减负。（来源：证券时报e公司）</li>\n<li><span class=\"brand\">半导体周期逻辑迎来根本性切换</span>：摩根大通等机构密集发布看多半导体研报，本轮景气不再由存储单独驱动，涨价红利从存储延伸至设备、材料、功率、模拟等上游赛道，上游\"卖铲人\"成为最大受益群体。（来源：第一财经资讯）</li>\n<li><span class=\"brand\">摩根士丹利：人形机器人市场将超5万亿美元（2050年）</span>：发布Top 25公司名单，中国企业在整机制造环节占据主导（宇树/智元合计占全球出货量75%），英飞凌/瑞萨/NXP/ST/TI/Microchip等芯片厂入围核心供应链层。（来源：Morgan Stanley）</li>\n<li><span class=\"brand\">MCU供需紧张由成本驱动转向需求驱动</span>：国民技术在互动平台明确表示\"当前并非全行业整体性紧缺，而是AI需求拉动下成熟制程产能分配带来的供需矛盾\"；成熟制程晶圆代工产能被AI电源等应用挤占，MCU晶圆供应偏紧可能延续至2027年。（来源：金融界/与非网）</li>\n</ol>\n<hr style=\"border:none;border-top:1px solid #e8e8e8;margin:12px 0;\">\n<p class=\"report-p\">> <span class=\"brand\">数据来源</span>：WebSearch全网搜索（freshness d2）、半导体垂直媒体、财经投资平台、上市公司公告/互动易、行业协会等。信息均为公开渠道获取，仅供内部参考。</p>", "metrics_date": "2026-08-22", "metrics_time": "2026-08-22 12:35:12"};
+
+document.getElementById('reportContent').innerHTML = D.report_html;
+
+let chartsVisible = false;
+let barChart = null, donutChart = null;
+
+function toggleCharts() {
+    chartsVisible = !chartsVisible;
+    const wrap = document.getElementById('chartsWrap');
+    const btn = document.getElementById('chartsToggle');
+    if (chartsVisible) {
+        wrap.classList.add('show');
+        btn.innerHTML = '📊 品牌热度数据 ▾';
+        if (!barChart) initCharts();
+    } else {
+        wrap.classList.remove('show');
+        btn.innerHTML = '📊 品牌热度数据 ▸';
+    }
+}
+
+function fmtNum(n) {
+    if (n >= 100000000) return (n/100000000).toFixed(1) + '亿';
+    if (n >= 10000) return (n/10000).toFixed(1) + '万';
+    return n.toLocaleString();
+}
+
+function initCharts() {
+    barChart = new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+            labels: D.top5_labels,
+            datasets: [{
+                data: D.top5_values,
+                backgroundColor: D.top5_colors,
+                borderWidth: 0,
+                borderRadius: 2,
+                barPercentage: 0.85,
+                categoryPercentage: 0.85,
+                minBarLength: 2,
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            layout: { padding: { left: 0, right: 50, top: 4, bottom: 4 } },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        title: (items) => {
+                            const i = items[0].dataIndex;
+                            return D.top5_names[i] + '（' + D.top5_sectors[i] + '）';
+                        },
+                        label: (ctx) => {
+                            const i = ctx.dataIndex;
+                            const detail = D.top5_areas_detail[i];
+                            const lines = ['搜索结果约 ' + ctx.parsed.x.toLocaleString() + ' 个'];
+                            if (detail && Object.keys(detail).length) {
+                                const areaNames = Object.keys(detail).sort((a, b) => detail[b] - detail[a]);
+                                areaNames.forEach(function(area) {
+                                    lines.push(area + ': ' + detail[area].toLocaleString());
+                                });
+                            }
+                            return lines;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: { color: '#f0f0f0', drawTicks: false },
+                    ticks: {
+                        font: { size: 10 },
+                        color: '#999',
+                        callback: function(v) { return fmtNum(v); }
+                    },
+                    border: { display: false }
+                },
+                y: {
+                    grid: { display: false, drawBorder: false },
+                    ticks: {
+                        font: { size: 11, weight: '600' },
+                        color: (ctx) => {
+                            const label = ctx.tick && ctx.tick.label;
+                            // 国民技术品牌蓝、兆易创新紫色，其他灰色
+                            const i = ctx.tick && ctx.tick.index;
+                            const name = D.top5_names[i] || '';
+                            if (name === D.self_brand) return D.self_color;
+                            if (name === '兆易创新') return '#9b59b6';
+                            return '#555';
+                        },
+                        callback: function(value) {
+                            const label = this.getLabelForValue(value);
+                            return label.length > 14 ? label.substring(0, 14) : label;
+                        }
+                    },
+                    border: { display: false }
+                }
+            }
+        }
+    });
+
+    donutChart = new Chart(document.getElementById('donutChart'), {
+        type: 'doughnut',
+        data: {
+            labels: D.sector_labels,
+            datasets: [{
+                data: D.sector_values,
+                backgroundColor: D.sector_colors,
+                borderWidth: 0,
+                spacing: 2,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '62%',
+            animation: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const total = ctx.dataset.data.reduce((a,b)=>a+b, 0);
+                            const pct = ((ctx.parsed / total) * 100).toFixed(1);
+                            return ctx.label + ': ' + fmtNum(ctx.parsed) + ' (' + pct + '%)';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    const legendEl = document.getElementById('donutLegend');
+    D.sector_labels.forEach((label, i) => {
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        item.innerHTML = '<span class="legend-dot" style="background:' + D.sector_colors[i] + '"></span>' + label + ' (' + fmtNum(D.sector_values[i]) + ')';
+        legendEl.appendChild(item);
+    });
+}
+</script>
+
+</body>
+</html>
