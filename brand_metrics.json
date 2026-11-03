@@ -1,6 +1,6 @@
 {
-  "fetch_date": "2026-11-02",
-  "fetch_time": "2026-11-02 13:05:59",
+  "fetch_date": "2026-11-03",
+  "fetch_time": "2026-11-03 05:25:41",
   "data_sources": [
     "Bing搜索结果数",
     "Yahoo Finance股价数据"
@@ -10,30 +10,30 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "华大电子",
-      "bing_count": 20300,
+      "bing_count": 66900,
       "stock_ticker": null,
       "stock_data": null
     },
     "复旦微": {
       "sector": "安全芯片",
       "color": "#e74c3c",
-      "search_kw": "复旦微电子",
-      "bing_count": 128000,
+      "search_kw": "上海复旦微电子",
+      "bing_count": 136000,
       "stock_ticker": "688385.SS",
       "stock_data": {
-        "price": 46.05,
-        "volume": 16616831,
-        "avg_volume": 15630555,
+        "price": 44.35,
+        "volume": 8672987,
+        "avg_volume": 14467670,
         "currency": "CNY",
-        "change_pct": -6.42,
-        "trade_value": 765205055.0
+        "change_pct": -12.37,
+        "trade_value": 384646960.0
       }
     },
     "紫光同芯": {
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "紫光同芯",
-      "bing_count": 25600,
+      "bing_count": 153000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -41,7 +41,7 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "晟元芯片",
-      "bing_count": 19000,
+      "bing_count": 144000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -49,7 +49,7 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "大唐微电子",
-      "bing_count": 37000,
+      "bing_count": 25000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -57,7 +57,7 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "天津国芯",
-      "bing_count": 28400,
+      "bing_count": 45600,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -65,7 +65,7 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "宏思电子",
-      "bing_count": 459000,
+      "bing_count": 78400,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -73,7 +73,7 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "上海航芯",
-      "bing_count": 123000,
+      "bing_count": 136000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -81,7 +81,7 @@
       "sector": "安全芯片",
       "color": "#e74c3c",
       "search_kw": "方正微电子",
-      "bing_count": 121000,
+      "bing_count": 102000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -89,22 +89,22 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "意法半导体",
-      "bing_count": 156000,
+      "bing_count": 34700,
       "stock_ticker": "STM",
       "stock_data": {
-        "price": 46.74,
-        "volume": 13864800,
-        "avg_volume": 12210540,
+        "price": 47.17,
+        "volume": 9374200,
+        "avg_volume": 12488780,
         "currency": "USD",
-        "change_pct": 3.43,
-        "trade_value": 648040775.0
+        "change_pct": -3.1,
+        "trade_value": 442180997.0
       }
     },
     "瑞萨": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "瑞萨电子",
-      "bing_count": 11900,
+      "bing_count": 40500,
       "stock_ticker": "6723.T",
       "stock_data": {
         "price": 2860.0,
@@ -119,67 +119,67 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "恩智浦半导体",
-      "bing_count": 99400,
+      "bing_count": 54800,
       "stock_ticker": "NXPI",
       "stock_data": {
-        "price": 259.61,
-        "volume": 9008800,
-        "avg_volume": 6792940,
+        "price": 257.24,
+        "volume": 5063400,
+        "avg_volume": 6922240,
         "currency": "USD",
-        "change_pct": 5.61,
-        "trade_value": 2338774436.0
+        "change_pct": 1.48,
+        "trade_value": 1302508967.0
       }
     },
     "英飞凌": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "英飞凌",
-      "bing_count": 79400,
+      "bing_count": 77300,
       "stock_ticker": "IFX.DE",
       "stock_data": {
-        "price": 51.81,
-        "volume": 916918,
-        "avg_volume": 2779466,
+        "price": 50.56,
+        "volume": 2854472,
+        "avg_volume": 3166977,
         "currency": "EUR",
-        "change_pct": -1.48,
-        "trade_value": 47505523.0
+        "change_pct": -3.86,
+        "trade_value": 144322108.0
       }
     },
     "新唐": {
       "sector": "MCU",
       "color": "#3498db",
-      "search_kw": "Nuvoton",
-      "bing_count": 91400,
+      "search_kw": "新唐科技",
+      "bing_count": 60200,
       "stock_ticker": "4919.TW",
       "stock_data": {
-        "price": 119.0,
-        "volume": 8762090,
-        "avg_volume": 6925594,
+        "price": 107.5,
+        "volume": 8786455,
+        "avg_volume": 7770104,
         "currency": "TWD",
-        "change_pct": -10.19,
-        "trade_value": 1042688710.0
+        "change_pct": -24.3,
+        "trade_value": 944543912.0
       }
     },
     "兆易创新": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "兆易创新",
-      "bing_count": 47700,
+      "bing_count": 2390,
       "stock_ticker": "603986.SS",
       "stock_data": {
-        "price": 265.67,
-        "volume": 34519850,
-        "avg_volume": 34967527,
+        "price": 251.88,
+        "volume": 21968185,
+        "avg_volume": 34581798,
         "currency": "CNY",
-        "change_pct": -1.23,
-        "trade_value": 9170889013.0
+        "change_pct": -13.11,
+        "trade_value": 5533346545.0
       }
     },
     "华大半导体": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "华大半导体",
-      "bing_count": 6700,
+      "bing_count": 66900,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -187,22 +187,22 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "汇顶科技",
-      "bing_count": 34200,
+      "bing_count": 59800,
       "stock_ticker": "603160.SS",
       "stock_data": {
-        "price": 59.96,
-        "volume": 11492182,
-        "avg_volume": 11666049,
+        "price": 59.03,
+        "volume": 4494569,
+        "avg_volume": 10427095,
         "currency": "CNY",
-        "change_pct": 2.94,
-        "trade_value": 689071222.0
+        "change_pct": -3.83,
+        "trade_value": 265314403.0
       }
     },
     "航顺": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "HK32航顺",
-      "bing_count": 38300,
+      "bing_count": 6650,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -210,7 +210,7 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "灵动微电子",
-      "bing_count": 123000,
+      "bing_count": 6470,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -218,37 +218,37 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "亚德诺半导体",
-      "bing_count": 118000,
+      "bing_count": 59700,
       "stock_ticker": "ADI",
       "stock_data": {
-        "price": 417.11,
-        "volume": 7877200,
-        "avg_volume": 4562500,
+        "price": 412.85,
+        "volume": 5691800,
+        "avg_volume": 4938720,
         "currency": "USD",
-        "change_pct": 2.25,
-        "trade_value": 3285658777.0
+        "change_pct": -2.94,
+        "trade_value": 2349859665.0
       }
     },
     "TI": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "德州仪器",
-      "bing_count": 149000,
+      "bing_count": 123000,
       "stock_ticker": "TXN",
       "stock_data": {
-        "price": 300.84,
-        "volume": 12998300,
-        "avg_volume": 8354100,
+        "price": 302.02,
+        "volume": 11063600,
+        "avg_volume": 9047980,
         "currency": "USD",
-        "change_pct": 0.91,
-        "trade_value": 3910408524.0
+        "change_pct": -2.23,
+        "trade_value": 3341428350.0
       }
     },
     "CYPRESS": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "赛普拉斯半导体",
-      "bing_count": 2160,
+      "bing_count": 30700,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -256,22 +256,22 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "微芯科技",
-      "bing_count": 8160,
+      "bing_count": 35100,
       "stock_ticker": "MCHP",
       "stock_data": {
-        "price": 77.34,
-        "volume": 19831500,
-        "avg_volume": 11381340,
+        "price": 76.11,
+        "volume": 13854400,
+        "avg_volume": 12563240,
         "currency": "USD",
-        "change_pct": 1.9,
-        "trade_value": 1533768137.0
+        "change_pct": -5.06,
+        "trade_value": 1054458392.0
       }
     },
     "芯旺": {
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "芯旺微电子",
-      "bing_count": 83900,
+      "bing_count": 6660,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -279,15 +279,15 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "MEGAWIN",
-      "bing_count": 50700,
+      "bing_count": 1350,
       "stock_ticker": null,
       "stock_data": null
     },
     "NAVOTA": {
       "sector": "MCU",
       "color": "#3498db",
-      "search_kw": "纳瓦塔NAVOTA",
-      "bing_count": 269000,
+      "search_kw": "NAVOTA",
+      "bing_count": 79500,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -295,15 +295,15 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "芯圣电子",
-      "bing_count": 83900,
+      "bing_count": 38100,
       "stock_ticker": null,
       "stock_data": null
     },
     "赛元": {
       "sector": "MCU",
       "color": "#3498db",
-      "search_kw": "赛元微电子",
-      "bing_count": 122000,
+      "search_kw": "SAKYO赛元",
+      "bing_count": 85900,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -311,7 +311,7 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "苏州国芯",
-      "bing_count": 22400,
+      "bing_count": 20800,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -319,7 +319,7 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "华芯微特",
-      "bing_count": 254000,
+      "bing_count": 66900,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -327,7 +327,7 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "小华半导体",
-      "bing_count": 23200,
+      "bing_count": 7190,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -335,7 +335,7 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "先楫半导体",
-      "bing_count": 16000,
+      "bing_count": 142000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -343,15 +343,15 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "雅特力半导体",
-      "bing_count": 33000,
+      "bing_count": 45700,
       "stock_ticker": null,
       "stock_data": null
     },
     "极海": {
       "sector": "MCU",
       "color": "#3498db",
-      "search_kw": "极海半导体",
-      "bing_count": 53500,
+      "search_kw": "Geehy极海",
+      "bing_count": 12800,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -359,37 +359,37 @@
       "sector": "MCU",
       "color": "#3498db",
       "search_kw": "中颖电子",
-      "bing_count": 28700,
+      "bing_count": 584000,
       "stock_ticker": "300327.SZ",
       "stock_data": {
-        "price": 21.15,
-        "volume": 9544377,
-        "avg_volume": 9161767,
+        "price": 21.12,
+        "volume": 5482728,
+        "avg_volume": 8356422,
         "currency": "CNY",
-        "change_pct": -1.17,
-        "trade_value": 201863570.0
+        "change_pct": -5.33,
+        "trade_value": 115795220.0
       }
     },
     "NORDIC": {
       "sector": "蓝牙",
       "color": "#2ecc71",
-      "search_kw": "Nordic半导体",
-      "bing_count": 109000,
+      "search_kw": "Nordic Semiconductor",
+      "bing_count": 91800,
       "stock_ticker": "NOD.OL",
       "stock_data": {
-        "price": 179.3,
-        "volume": 450464,
-        "avg_volume": 862829,
+        "price": 177.2,
+        "volume": 809604,
+        "avg_volume": 934657,
         "currency": "NOK",
-        "change_pct": -0.39,
-        "trade_value": 80768197.0
+        "change_pct": -1.56,
+        "trade_value": 143461826.0
       }
     },
     "Dialog": {
       "sector": "蓝牙",
       "color": "#2ecc71",
       "search_kw": "Dialog半导体",
-      "bing_count": 129000,
+      "bing_count": 134000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -397,22 +397,22 @@
       "sector": "蓝牙",
       "color": "#2ecc71",
       "search_kw": "泰凌微电子",
-      "bing_count": 259000,
+      "bing_count": 2430000,
       "stock_ticker": "688591.SS",
       "stock_data": {
-        "price": 26.74,
-        "volume": 7676316,
-        "avg_volume": 6683603,
+        "price": 26.38,
+        "volume": 3507363,
+        "avg_volume": 6156145,
         "currency": "CNY",
-        "change_pct": -3.64,
-        "trade_value": 205264688.0
+        "change_pct": -8.62,
+        "trade_value": 92524233.0
       }
     },
     "上海博通": {
       "sector": "蓝牙",
       "color": "#2ecc71",
       "search_kw": "上海博通",
-      "bing_count": 123000,
+      "bing_count": 136000,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -420,22 +420,22 @@
       "sector": "蓝牙",
       "color": "#2ecc71",
       "search_kw": "卓胜微",
-      "bing_count": 24300,
+      "bing_count": 67400,
       "stock_ticker": "300782.SZ",
       "stock_data": {
-        "price": 50.6,
-        "volume": 10318208,
-        "avg_volume": 10532922,
+        "price": 50.08,
+        "volume": 4913218,
+        "avg_volume": 10174997,
         "currency": "CNY",
-        "change_pct": -6.12,
-        "trade_value": 522101309.0
+        "change_pct": -10.57,
+        "trade_value": 246053966.0
       }
     },
     "易兆微": {
       "sector": "蓝牙",
       "color": "#2ecc71",
       "search_kw": "易兆微",
-      "bing_count": 235000,
+      "bing_count": 28900,
       "stock_ticker": null,
       "stock_data": null
     },
@@ -443,30 +443,30 @@
       "sector": "BMS",
       "color": "#f39c12",
       "search_kw": "芯海科技",
-      "bing_count": 83900,
+      "bing_count": 51900,
       "stock_ticker": "688595.SS",
       "stock_data": {
-        "price": 24.06,
-        "volume": 6238405,
-        "avg_volume": 5542674,
+        "price": 23.35,
+        "volume": 2347011,
+        "avg_volume": 4930112,
         "currency": "CNY",
-        "change_pct": -11.28,
-        "trade_value": 150096021.0
+        "change_pct": -21.22,
+        "trade_value": 54802708.0
       }
     },
     "国民技术": {
       "sector": "自身",
       "color": "#1a56c4",
       "search_kw": "国民技术",
-      "bing_count": 21500,
+      "bing_count": 21700,
       "stock_ticker": "300077.SZ",
       "stock_data": {
-        "price": 15.31,
-        "volume": 25663059,
-        "avg_volume": 26865761,
+        "price": 14.94,
+        "volume": 13912978,
+        "avg_volume": 24670610,
         "currency": "CNY",
-        "change_pct": -3.47,
-        "trade_value": 392901444.0
+        "change_pct": -9.34,
+        "trade_value": 207859885.0
       }
     }
   },
@@ -474,69 +474,69 @@
     "机器人芯片": {
       "color": "#9b59b6",
       "search_kw": "机器人芯片",
-      "bing_count": 8770
+      "bing_count": 104000
     },
     "AI芯片": {
       "color": "#1abc9c",
       "search_kw": "AI芯片",
-      "bing_count": 19200
+      "bing_count": 167000
     }
   },
   "mcu_applications": {
     "国民技术": {
       "areas": {
-        "机器人": 23900,
-        "AI": 50,
-        "汽车电子": 16300,
-        "工业控制": 41000,
-        "消费电子": 40900
+        "机器人": 31800,
+        "AI": 6680,
+        "汽车电子": 59300,
+        "工业控制": 43700,
+        "消费电子": 9530
       },
-      "top_area": "工业控制",
-      "top_count": 41000
+      "top_area": "汽车电子",
+      "top_count": 59300
     },
     "兆易创新": {
       "areas": {
-        "机器人": 51600,
-        "AI": 100000,
-        "汽车电子": 85200,
-        "工业控制": 227000,
-        "消费电子": 65
-      },
-      "top_area": "工业控制",
-      "top_count": 227000
-    },
-    "NAVOTA": {
-      "areas": {
-        "机器人": 50,
-        "AI": 23200,
-        "汽车电子": 38600,
+        "机器人": 99,
+        "AI": 116000,
+        "汽车电子": 45400,
         "工业控制": 50,
-        "消费电子": 6020
+        "消费电子": 207000
       },
-      "top_area": "汽车电子",
-      "top_count": 38600
+      "top_area": "消费电子",
+      "top_count": 207000
     },
-    "华芯微特": {
+    "中颖": {
       "areas": {
-        "机器人": 23700,
-        "AI": 59700,
-        "汽车电子": 139000,
-        "工业控制": 12300,
-        "消费电子": 6690
-      },
-      "top_area": "汽车电子",
-      "top_count": 139000
-    },
-    "ST": {
-      "areas": {
-        "机器人": 29400,
-        "AI": 29400,
-        "汽车电子": 29400,
-        "工业控制": 29400,
-        "消费电子": 29400
+        "机器人": 584000,
+        "AI": 584000,
+        "汽车电子": 584000,
+        "工业控制": 584000,
+        "消费电子": 584000
       },
       "top_area": "机器人",
-      "top_count": 29400
+      "top_count": 584000
+    },
+    "先楫半导体": {
+      "areas": {
+        "机器人": 142000,
+        "AI": 142000,
+        "汽车电子": 142000,
+        "工业控制": 142000,
+        "消费电子": 142000
+      },
+      "top_area": "机器人",
+      "top_count": 142000
+    },
+    "TI": {
+      "areas": {
+        "机器人": 52800,
+        "AI": 2,
+        "汽车电子": 12700,
+        "工业控制": 44900,
+        "消费电子": 66500
+      },
+      "top_area": "消费电子",
+      "top_count": 66500
     }
   }
 }
